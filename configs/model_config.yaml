@@ -1,0 +1,47 @@
+# Model Architecture Configuration
+
+model_name: "ConvLSTM_WildfireDSS"
+model_type: "ConvLSTM"
+
+# Input shape: (timesteps, height, width, channels)
+input_shape: [10, 320, 320, 2]  # 10 timesteps, 320x320 downsampled, 2 channels (flame + spread)
+
+# ConvLSTM layers
+convlstm_layers:
+  - filters: 64
+    kernel_size: [3, 3]
+    activation: "relu"
+    return_sequences: true
+  - filters: 32
+    kernel_size: [3, 3]
+    activation: "relu"
+    return_sequences: true
+  - filters: 16
+    kernel_size: [3, 3]
+    activation: "relu"
+    return_sequences: false
+
+convlstm_filters: [32, 16, 8]  # Reduced for memory-constrained systems
+kernel_size: [3, 3]
+
+# Pooling
+pooling: "global_average"
+
+# Dense layers
+dense_units: [128, 64]
+
+# Regularization
+dropout_rate: 0.3
+batch_normalization: true
+
+# Output
+num_crews: 6  # Number of crew positions (set dynamically from data)
+output_activation: "sigmoid"
+
+# Loss and metrics
+loss: "binary_crossentropy"
+metrics:
+  - "accuracy"
+  - "precision"
+  - "recall"
+  - "auc"

@@ -1,0 +1,55 @@
+# Data Configuration
+project_root: "C:/Users/horhe/OneDrive/Documents/DSS/wildfire_dss"
+data_root: "C:/Users/horhe/OneDrive/Documents/DSS"
+
+patches:
+  - id: "P1"
+    name: "darkforest"
+    folder: "P1_darkforest"
+    fuel_type: "dense_forest"
+  - id: "P2"
+    name: "shrub"
+    folder: "P2_shrub"
+    fuel_type: "shrubland"
+  - id: "P3"
+    name: "drygrass"
+    folder: "P3_drygrass"
+    fuel_type: "grassland"
+  - id: "P4"
+    name: "forestshrub"
+    folder: "P4_forestshrub"
+    fuel_type: "forest_shrub_mix"
+  - id: "P5"
+    name: "mixedshrub"
+    folder: "P5_mixedshrub"
+    fuel_type: "mixed_shrub"
+  - id: "P6"
+    name: "forestedslope"
+    folder: "P6_forestedslope"
+    fuel_type: "forested_slope"
+  - id: "P7"
+    name: "grassgrey"
+    folder: "P7_grassgrey"
+    fuel_type: "grass_grey"
+  - id: "P8"
+    name: "shrubgrass"
+    folder: "P8_shrubgrass"
+    fuel_type: "shrub_grass"
+
+scenarios:
+  - "ws12_wd90_dry"
+  - "ws12_wd270_dry"
+  - "ws12_wd270_extreme"
+  - "ws25_wd90_dry"
+  - "ws25_wd270_dry"
+  - "ws25_wd270_extreme"
+
+spatial:
+  crs: "EPSG:25830"
+  resolution: 5  # meters
+  patch_size: [1600, 1600]  # cells (8km × 8km)
+
+danger_criteria:
+  buffer_distance: 200  # meters
+  prediction_horizons: [5, 10, 20]  # minutes
+  flame_length_threshold: 4.0  # meters (extreme danger)

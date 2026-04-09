@@ -1,0 +1,55 @@
+# Crew Position Configuration
+
+# Define crew positions in the 1600x1600 grid (8km x 8km domain)
+# Coordinates are in (row, col) format
+# These 6 positions are spread across the landscape so different
+# wind scenarios threaten different crews.
+
+positions:
+  - id: 0
+    name: "Crew Alpha"
+    row: 300
+    col: 500
+    description: "Northwest sector"
+
+  - id: 1
+    name: "Crew Bravo"
+    row: 500
+    col: 1000
+    description: "North-east sector"
+
+  - id: 2
+    name: "Crew Charlie"
+    row: 800
+    col: 500
+    description: "Center-west"
+
+  - id: 3
+    name: "Crew Delta"
+    row: 800
+    col: 1100
+    description: "Center-east"
+
+  - id: 4
+    name: "Crew Echo"
+    row: 1100
+    col: 700
+    description: "South-central"
+
+  - id: 5
+    name: "Crew Foxtrot"
+    row: 1300
+    col: 1300
+    description: "Southeast sector"
+
+# Safety parameters
+safety:
+  minimum_safe_distance: 200  # meters
+  evacuation_time: 10  # minutes
+  communication_radius: 1000  # meters
+
+# Crew capabilities
+crew_capabilities:
+  movement_speed: 1.5  # m/s (average walking speed on terrain)
+  max_work_hours: 12
+  required_rest_hours: 8
